@@ -14,6 +14,9 @@ var templatemain = require('./routes/template-main');
 
 var app = express();
 
+// Methodoverride at the top
+app.use(methodOverride('_method'));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -32,13 +35,13 @@ app.use('/public', express.static(__dirname + '/js'));
 app.use('/public', express.static(__dirname + '/images'));
 
 app.use('/', routes);
+
+app.use('/', routes);
 app.use('/database', database);
 app.use('/create', database);
 app.use('/delete', database);
 app.use('/:id', database);
-app.use(methodOverride('_method'));
-//delete an employee
-app.use('/database/#{entry._id}?/delete', database);
+// app.use('/database/#{entry._id}?/delete', database);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
