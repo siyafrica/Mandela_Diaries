@@ -1,0 +1,55 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.container {
+	width: 300px;
+	background: url('/public/images/background.png');
+}
+
+#database.container {
+	width: 100%;
+}
+
+#header {
+	background: url('/public/images/header.png') !important;
+}
+
+#context {
+	padding-top: 1em;
+}
+
+p {
+	color: #fff;
+	margin-right: auto;
+	margin-left: auto;
+	width: 70%;
+	font-family: 'serif';
+}
+
+#videos {
+	clear: both;
+}
+
+#videos.col-xs-12 {
+	padding-left: 0em;
+	padding-right: 0em;
+}
+
+#footer {
+	padding-top: 6em;
+	background: url('/public/images/footer.png');
+}
+
+#NMF_logo {
+	float: left;
+}
+
+#SABC_logo {
+	float: right;
+}

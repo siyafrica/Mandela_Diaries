@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title The Mandela Diaries
+    // For IE8 compatability mode
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    // To ensure that the website consumes all the space available inside the browser window
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // The CSS files including Bootstrap and custom CSS
+    // The CSS Bootstrap CSS file
+    link(rel='stylesheet', type='text/css', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css')
+    // The jQuery UI CSS
+    link(rel='stylesheet', type='text/css', href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css')
+    link(rel="stylesheet" type="text/css" href="/public/css/style.css")
+  body
+    block content
+
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js')
+    script(type='text/javascript', src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    script(type'text/javascript', src='/public/js/script.js')
+    // Script for the jQuery UI date picker
+    script(type='text/javascript').
+      $(document).ready(function() {
+      //Date picker jQuery
+      $(function() {
+      $( ".datepicker" ).datepicker();
+      $( "#format" ).change(function() {
+      $( ".datepicker" ).datepicker( "option", "dateFormat", $( this ).val() );
+      });
+      });
+      console.log("This worked!!");
+      });

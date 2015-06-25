@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    #databse.container
+      .row
+        .col-md-12
+          h1 The Mandela Diaries Database
+      .row
+        .col-md-4
+          h3 Add Entry
+      .row
+        .col-md-12
+          form.form-inline(method='post', action='/create')
+            .form-group
+              label(for='date') Date: 
+              input#datepicker.form-control.datepicker(type='text', name='date')
+            .form-group
+              label(for='link') Link: 
+              input#link.form-control(type='string', name='link')
+            button.btn.btn-default(type='submit') Submit
+      .row
+        p
+              | Format options:
+              br
+              select#format
+                option(value='mm/dd/yy') Default - mm/dd/yy
+                option(value='yy-mm-dd') ISO 8601 - yy-mm-dd
+                option(value='d M, y') Short - d M, y
+                option(value='d MM, y') Medium - d MM, y
+                option(value='DD, d MM, yy') Full - DD, d MM, yy
+                option(value="'day' d 'of' MM 'in the year' yy") With text - 'day' d 'of' MM 'in the year' yy
+      br
+      ul#dbentries.col-md-12
+        each entry in entries
+          p= 'Date: ' + entry.date + ': Link: ' + entry.link + ' '
+            span
+              form(method='POST', action='/database/#{entry._id}_method=DELETE')
+                button(type='submit') Delete
