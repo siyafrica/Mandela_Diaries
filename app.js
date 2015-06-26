@@ -54,6 +54,8 @@ app.use('/public', express.static(__dirname + '/node_modules'));
 app.use('/', routes);
 
 app.use('/', routes);
+
+app.use('/', routes);
 app.use('/database', database);
 app.use('/create', database);
 app.use('/delete', database);
