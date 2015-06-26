@@ -7,7 +7,7 @@ a {
   color: #00B7FF;
 }
 
-.container {
+#widget {
 	width: 300px;
 	background: url('/public/images/background.png');
 }
@@ -24,7 +24,7 @@ a {
 	padding-top: 1em;
 }
 
-p {
+p.clear {
 	color: #fff;
 	margin-right: auto;
 	margin-left: auto;
@@ -32,17 +32,13 @@ p {
 	font-family: 'serif';
 }
 
-#videos {
-	clear: both;
-}
-
 #videos.col-xs-12 {
 	padding-left: 0em;
 	padding-right: 0em;
+	padding-bottom: 3em;
 }
 
 #footer {
-	padding-top: 6em;
 	background: url('/public/images/footer.png');
 }
 

@@ -1,30 +1,17 @@
 extends layout
 
 block content
-   .container
+   #widget.container
       .row
         #header.col-xs-12.header
           img#Mandela_Logo(src='/public/images/Logo_MandelaDiaries.png')
       .row
         #context.col-xs-12
-          p.clear
-            | ON THIS DAY AGO
+          p.clear ON THIS DAY AGO
       .row
         #videos.col-xs-12
-          #myCarousel.carousel.slide
-            ol.carousel-indicators
-              li(data-target='#myCarousel', data-slide-to='0')
-              li.active(data-target='#myCarousel', data-slide-to='1')
-              li(data-target='#myCarousel', data-slide-to='2')
-            .carousel-inner
-              .item.active
-                iframe(width='100%', height='100%', src='', frameborder='0', allowfullscreen='')
-              .item
-                iframe(width='100%', height='100%', src='', frameborder='0', allowfullscreen='')
-              .item
-                iframe(width='100%', height='100%', src='', frameborder='0', allowfullscreen='')
-            a.left.carousel-control(href='#myCarousel', data-slide='prev') ‹
-            a.right.carousel-control(href='#myCarousel', data-slide='next') ›
+          .embed-responsive.embed-responsive-4by3
+            iframe(width='300', height='169', src='https://www.youtube.com/embed/4HqtAMHrJ8s', frameborder='0', allowfullscreen='')
       .row
         #footer.col-xs-12
           img#NMF_logo(src='/public/images/Logo_NMF.png')

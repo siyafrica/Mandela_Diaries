@@ -1,48 +1,33 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-//var template = require('template-main');
-
-/* Database stuff */
-//connect to the data store and the set up the database
-var db = mongoose.connection;
-
-//connect to the database
-mongoose.connect('mongodb://localhost/Mandela_Diaries/data');
-
-//Create a model which connects to the schema and entries collection in the Mandela_Diaries database
-var Entry = mongoose.model("Entry", new Schema({date: 'date', link: 'string'}), "entries");
-
-mongoose.connection.on("open", function() {
-	console.log("mongodb is connected!");
-});
+var Entry = mongoose.model('Entry');
 
 //The route for getting data for the database - GET form
 router.get("/", function(req, res) {
-	//Send the current entries to the page
-	Entry.find({}, function(err, entries) {
-		console.log(entries);
-		if(err) {
-			res.status(404).json({"error": "not found", "err":err});
-			return;
-		} else {
-			res.render('database', {title: 'database', entries: entries});
-		}
-	});
+  //Send the current entries to the page
+  Entry.find({}, function(err, entries) {
+    console.log(entries);
+    if(err) {
+      res.status(404).json({"error": "not found", "err":err});
+      return;
+    } else {
+      res.render('database', {title: 'database', entries: entries});
+    }
+  });
 
 });
 
 //The route for posting data to the database - POST
 router.post('/', function(req, res) {
-	var newEntry = new Entry(req.body);
-	newEntry.save(function(err, entries){
-		if (err !== null) {
-			res.status(500).json(err);
-		} else {
-			res.redirect('database');
-		};
-	});
+  var newEntry = new Entry(req.body);
+  newEntry.save(function(err, entries){
+    if (err !== null) {
+      res.status(500).json(err);
+    } else {
+      res.redirect('database');
+    };
+  });
 });
 
 //The route for deleting data to the database - Delete/remove todo item by its id
@@ -60,7 +45,7 @@ router.post('/', function(req, res) {
                             res.statusCode = 403;
                             res.send(err);
                         } else {
-                            res.send({});
+                            res.send('Deleted entry with link: ', entries.link);
                         }
                     });
                 }

@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    #databse.container
+    .container
       .row
         .col-md-12
           h1 The Mandela Diaries Database
@@ -34,5 +34,7 @@ block content
         each entry in entries
           p= 'Date: ' + entry.date + ': Link: ' + entry.link + ' '
             span
-              form(method='POST', action='/database/#{entry._id}_method=DELETE')
+              //- the problem was a missing `?` the `_method` parameter is in the query string
+              //- `method-override` middleware will check for this
+              form(method='POST', action='/database/#{entry._id}?_method=DELETE')
                 button(type='submit') Delete
